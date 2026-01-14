@@ -47,6 +47,42 @@
         .btn-border-hover:hover {
             border-color: #3B82F6;
         }
+.stats-slider {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.stats-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-slider {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.testimonial-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.testimonial-card {
+    scroll-snap-align: start;
+    min-width: 300px;
+}
+
+.slider-nav-btn {
+    transition: all 0.3s ease;
+}
+
+.slider-nav-btn:hover {
+    background-color: #2563EB;
+    transform: scale(1.1);
+}
     </style>
 </head>
 <body>
@@ -89,6 +125,103 @@
         </div>
     </section>
 
+
+<!-- Live Stats Section -->
+<section class="py-16 px-6 bg-[#0A1929]">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">
+                Statistik Real-Time Bot
+            </h2>
+            <p class="text-gray-400 text-sm">Data diperbarui secara otomatis</p>
+        </div>
+        
+        <div class="relative">
+            <div class="stats-slider flex gap-4 pb-4">
+                <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl min-w-[280px] flex-shrink-0">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <i class="ri-user-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-1">Total Users</p>
+                            <p class="text-white text-2xl font-bold" id="totalUsers">12,458</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl min-w-[280px] flex-shrink-0">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                            <i class="ri-download-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-1">Total Download</p>
+                            <p class="text-white text-2xl font-bold" id="totalDownload">45,892</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl min-w-[280px] flex-shrink-0">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-600 rounded-lg flex items-center justify-center">
+                            <i class="ri-checkbox-circle-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-1">Download Berhasil</p>
+                            <p class="text-white text-2xl font-bold" id="successDownload">44,127</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl min-w-[280px] flex-shrink-0">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
+                            <i class="ri-close-circle-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-1">Download Gagal</p>
+                            <p class="text-white text-2xl font-bold" id="failedDownload">1,765</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl min-w-[280px] flex-shrink-0">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center">
+                            <i class="ri-star-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-1">Kepuasan Pengguna</p>
+                            <p class="text-white text-2xl font-bold" id="satisfaction">96.2%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl min-w-[280px] flex-shrink-0">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="ri-time-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-xs mb-1">Rata-rata Waktu</p>
+                            <p class="text-white text-2xl font-bold">3.2s</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-2 mt-4">
+                <button onclick="scrollStats('left')" class="slider-nav-btn w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                    <i class="ri-arrow-left-s-line text-xl"></i>
+                </button>
+                <button onclick="scrollStats('right')" class="slider-nav-btn w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                    <i class="ri-arrow-right-s-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Features Section -->
     <section id="features" class="py-16 px-6 bg-[#0A1929]">
         <div class="max-w-6xl mx-auto">
@@ -96,7 +229,7 @@
                 <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">
                     Kenapa Pilih SnapLy?
                 </h2>
-                <p class="text-gray-400 text-sm">Solusi terbaik untuk download konten TikTok favorit kamu</p>
+                <p class="text-gray-400 text-sm">Solusi terbaik untuk download konten TikTok favorit Anda</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
@@ -121,7 +254,7 @@
                         <i class="ri-24-hours-line text-white text-2xl"></i>
                     </div>
                     <h3 class="text-lg font-semibold mb-2 text-white">Aktif 24/7</h3>
-                    <p class="text-gray-400 text-sm">Bot kami selalu online 24 jam setiap hari. Kapanpun kamu butuh!</p>
+                    <p class="text-gray-400 text-sm">Bot kami selalu online 24 jam setiap hari. Kapanpun Anda butuh!</p>
                 </div>
 
                 <div class="card-border-hover bg-[#132F4C] p-6 rounded-xl">
@@ -181,12 +314,132 @@
                         <span class="text-xl font-bold text-white">3</span>
                     </div>
                     <h3 class="text-lg font-semibold mb-2 text-white">Download</h3>
-                    <p class="text-sm text-gray-400">Terima file dalam hitungan detik dan download langsung ke perangkat kamu!</p>
+                    <p class="text-sm text-gray-400">Terima file dalam hitungan detik dan download langsung ke perangkat Anda!</p>
                 </div>
             </div>
         </div>
     </section>
 
+
+<!-- Testimonials Section -->
+<section class="py-16 px-6 bg-[#0A1929]">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3 text-white">
+                Apa Kata Mereka?
+            </h2>
+            <p class="text-gray-400 text-sm">Testimoni pengguna SnapLy yang puas</p>
+        </div>
+        
+        <div class="relative">
+            <div class="testimonial-slider flex gap-6 pb-4 px-1">
+                <div class="testimonial-card card-border-hover bg-[#132F4C] p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">AR</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Ahmad Rizki</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Bot nya sangat cepat dan mudah digunakan! Download video TikTok jadi gampang banget lewat WhatsApp. Recommended!"</p>
+                </div>
+
+                <div class="testimonial-card card-border-hover bg-[#132F4C] p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">SP</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Siti Putri</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Gratis dan tanpa watermark! Kualitas videonya bagus dan prosesnya cepat banget. Puas pakai SnapLy!"</p>
+                </div>
+
+                <div class="testimonial-card card-border-hover bg-[#132F4C] p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">BW</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Budi Wibowo</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Bot selalu online 24/7, kapanpun butuh bisa langsung download. Simple dan praktis!"</p>
+                </div>
+
+                <div class="testimonial-card card-border-hover bg-[#132F4C] p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">DM</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Devi Maharani</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Bisa download slide foto sama video, semua jadi mudah. Makasih SnapLy!"</p>
+                </div>
+
+                <div class="testimonial-card card-border-hover bg-[#132F4C] p-6 rounded-xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">FH</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Farhan Hidayat</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">"Paling ***** fitur tanpa watermark nya! Video jadi clean dan bisa langsung dipake. Top!"</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-2 mt-4">
+                <button onclick="scrollTestimonials('left')" class="slider-nav-btn w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                    <i class="ri-arrow-left-s-line text-xl"></i>
+                </button>
+                <button onclick="scrollTestimonials('right')" class="slider-nav-btn w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
+                    <i class="ri-arrow-right-s-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- CTA Section -->
     <section id="contact" class="py-16 px-6 bg-[#0A1929]">
         <div class="max-w-4xl mx-auto text-center">
@@ -194,9 +447,9 @@
                 Siap untuk Download TikTok?
             </h2>
             <p class="text-sm text-gray-400 mb-8">
-                Mulai download video dan gambar TikTok favorit kamu sekarang juga!
+                Mulai download video dan gambar TikTok favorit Anda sekarang juga!
             </p>
-            <a href="https://wa.me/6283874607050?text=.tiktok" target="_blank" class="btn-border-hover inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-blue-700 transition">
+            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Halo%20SnapLy" target="_blank" class="btn-border-hover inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-blue-700 transition">
                 <i class="ri-whatsapp-line text-lg"></i>
                 Hubungi via WhatsApp
             </a>
@@ -229,6 +482,67 @@
                 }
             });
         });
+// Stats Slider Navigation
+function scrollStats(direction) {
+    const container = document.querySelector('.stats-slider');
+    const scrollAmount = 300;
+    if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+
+// Testimonials Slider Navigation
+function scrollTestimonials(direction) {
+    const container = document.querySelector('.testimonial-slider');
+    const scrollAmount = 320;
+    if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+
+// Animated Counter for Stats
+function animateValue(id, start, end, duration) {
+    const obj = document.getElementById(id);
+    const range = end - start;
+    const increment = end > start ? 1 : -1;
+    const stepTime = Math.abs(Math.floor(duration / range));
+    let current = start;
+    
+    const timer = setInterval(function() {
+        current += increment;
+        if (id === 'satisfaction') {
+            obj.innerHTML = current.toFixed(1) + '%';
+        } else {
+            obj.innerHTML = current.toLocaleString();
+        }
+        if (current === end) {
+            clearInterval(timer);
+        }
+    }, stepTime);
+}
+
+// Run animation on page load
+window.addEventListener('load', () => {
+    animateValue("totalUsers", 10000, 12458, 2000);
+    animateValue("totalDownload", 40000, 45892, 2000);
+    animateValue("successDownload", 40000, 44127, 2000);
+    animateValue("failedDownload", 1000, 1765, 2000);
+    animateValue("satisfaction", 90, 96.2, 2000);
+});
+
+// Auto slide for testimonials (optional)
+let testimonialAutoScroll = setInterval(() => {
+    scrollTestimonials('right');
+}, 5000);
+
+// Stop auto scroll when user interacts
+document.querySelector('.testimonial-slider').addEventListener('touchstart', () => {
+    clearInterval(testimonialAutoScroll);
+});
     </script>
 </body>
 </html>
